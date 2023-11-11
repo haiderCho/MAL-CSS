@@ -1,0 +1,1496 @@
+@\import "https://malscraper.azurewebsites.net/covers/anime/NafizHC/presets/dataimagelinkbefore";
+@\import "https://malscraper.azurewebsites.net/covers/manga/NafizHC/presets/dataimagelinkbefore";
+@\import "https://fonts.googleapis.com/css?family=Rancho|Kaushan+Script|Tangerine";
+
+
+/*
+  * VARIABLES
+  */
+
+:root {
+    /* Various images
+      * valid values: url(IMAGEURL) / none */
+
+    --banner-avatar: url(https://imgur.com/ewhIfvt.gif);
+    --background: url(https://i.imgur.com/ShBeoCq.jpg);
+    --banner: none;
+    --left-render: none;
+    --left-render-pos: center bottom;
+    --left-render-size: ;
+    --right-render: url(https://i.imgur.com/MlwDMNL.png);
+    --right-render-pos: center bottom;
+    --right-render-size: 70%;
+    --filter-background: url(https://i.imgur.com/h0VRsRc.png);
+
+    --menu-all: url(https://i.imgur.com/tvxxhu3.png);
+    --menu-all-sel: url(https://i.imgur.com/rmiU9tl.gif);
+    --menu-current: url(https://i.imgur.com/fBU8VFi.png);
+    --menu-current-sel: url(https://i.imgur.com/P1E7wf3.gif);
+    --menu-completed: url(https://i.imgur.com/IS7y4j5.png);
+    --menu-completed-sel: url(https://i.imgur.com/WRamXgV.gif);
+    --menu-onhold: url(https://i.imgur.com/IMeQ8xR.png);
+    --menu-onhold-sel: url(https://i.imgur.com/r3aw3gn.gif);
+    --menu-dropped: url(https://i.imgur.com/pCEmvc6.png);
+    --menu-dropped-sel: url(https://i.imgur.com/f7umMB3.gif);
+    --menu-planned: url(https://i.imgur.com/fmQoJoB.png);
+    --menu-planned-sel: url(https://i.imgur.com/HL5QvFG.gif);
+
+    --cursor: url(https://i.imgur.com/iAvGz1j.png);
+    --cursor-link: var(--cursor);
+
+    /* Change the amount the cursor is offset from its default placement.
+      * Useful for when cursor images have a lot of white space on the edges 
+      * valid values: two numbers relating to the <x> and <y> position e.x: 3 1 */
+    --cursor-offset: 2 2;
+    --cursor-link-offset: var(--cursor-offset);
+
+    /* Change banner quote
+      * valid values: "Quote-surrounded sentence or text" */
+    --banner-quote: "The one thing I love most in this world is — 𝓞𝓷𝓮 𝓟𝓲𝓮𝓬𝓮.";
+
+    /* Change banner height
+      * valid values: "px"-suffixed number value e.x: 250px
+      * recommended min: 35px */
+    --banner-height: 40px;
+
+    /* Changes banner transparency.
+      * min: 0 / max: 1
+      * higher = more opaque */
+    --banner-opacity: 1;
+
+    /* Changes banner fade effect.
+      * min: 0 / recommended max: 1
+      * higher = more fading */
+    --banner-fade-multiplier: 0.41;
+
+    /* Theme colours
+      * valid values: any valid CSS colour
+      * for help choosing a colour and getting its CSS value,
+      * see https://www.w3schools.com/colors/colors_hsl.asp */
+
+    --menu-background-color: rgba(0, 0, 0, .4);
+    --list-background-color-1: rgba(0, 0, 0, .3);
+    --list-background-color-2: rgba(0, 0, 0, .2);
+    --nav-dropdown-background-color: var(--menu-background-color);
+    --filter-button-background-color: rgba(0, 0, 0, 0.8);
+    --hover-background-color: rgba(0, 0, 0, .5);
+    --list-hover-background-color: rgba(0, 0, 0, .7);
+    --inverse-background-color: rgba(255, 255, 255, 0.9);
+
+    --text-color-primary: #fff;
+    --text-color-3: rgba(255, 255, 255, 0.8);
+    --text-color-alt: #efefef;
+    --text-color-soft: #9b9b9b;
+    --text-color-stark: #fff;
+    --text-color-inverse: #000;
+    --text-color-filter-menu: rgba(0, 0, 0, 0.6);
+
+    --border: #fff;
+    --border-soft: #bebebe;
+    --scroll-background: black;
+    --scroll-bar: grey;
+
+    --input-background: #000;
+    --input-text: #fff;
+
+    --darkening-color: rgba(0, 0, 0, 0.6);
+
+    /* Changes various text and box shadows
+      * --shadow-status is used for the Rewatching/Airing status
+      * shadows are styled as such:
+      * <x distance> <y distance> <blur> <spread (optional)> <colour> */
+    --shadow-heavy:
+        0 0 2px #000,
+        0 0 1px #000,
+        1px 1px 7px #000;
+    --shadow-medium:
+        0 0 2px #000,
+        0 0 1px #000,
+        1px 1px 4px #000;
+    --shadow-soft:
+        0 2px 5px rgba(0, 0, 0, 0.7);
+    --shadow-image:
+        2px 2px 8px -3px rgba(0, 0, 0, .76);
+    --shadow-status:
+        0 0 2px #1a1aff,
+        0 0 1px #1a1aff,
+        1px 1px 7px #1a1aff;
+
+    /* Font family sets
+      * valid values: comma-separated list of fonts
+      * fonts listed earlier (further left) take priority over later ones */
+    --font-set-default: "Helvetica neue", "Helvetica", "lucida grande", "Tahoma", "Verdana", "Arial", "FontAwesome", sans-serif;
+    --font-set-icon: "FontAwesome", "Helvetica neue", "Helvetica", "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+    --font-set-title: "Rancho", cursive;
+    --font-set-tags: "Segoe UI", "Arial", "Helvetica", sans-serif;
+    --font-set-quote: "Rancho", cursive;
+    --font-set-header: "Kaushan Script", cursive;
+    --font-set-status-menu: "Tangerine", cursive;
+}
+
+
+
+
+
+
+/*
+  * INTERNAL CODE
+  * This is where the code gets rather undocumented.
+  * If you don't already understand CSS, it may be hard to understand.
+  * I encourage modification of it, you won't break MAL by messing up the CSS.
+  * Just remember to keep backups in-case something goes funky.
+  */
+
+
+
+/* BASIC PAGE SETTINGS */
+
+*,
+#list-container .mal-icon {
+    cursor: var(--cursor) var(--cursor-offset), default;
+    scrollbar-color: var(--scroll-bar) var(--scroll-background);
+    scrollbar-width: thin;
+}
+
+a:not(.edit-disabled),
+#list-container .mal-icon {
+    cursor: var(--cursor-link) var(--cursor-link-offset), pointer;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background: var(--scroll-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-bar);
+    border: 2px solid var(--scroll-background);
+}
+
+a {
+    color: var(--text-color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-color-primary) !important;
+    text-decoration: none;
+}
+
+body.ownlist {
+    background: fixed var(--background) center top / cover no-repeat;
+}
+
+
+
+/* HEADER */
+
+.header {
+    z-index: 40;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(var(--list-background-color-2), transparent);
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.header:hover {
+    background-color: var(--hover-background-color);
+}
+
+.header a {
+    color: var(--text-color-primary);
+}
+
+.header .header-title {
+    top: 0px;
+    left: 40px;
+    background: url(http://i.imgur.com/39cRtfK.png) left top / auto 50px;
+    width: 50px;
+    height: 50px;
+}
+
+.header .header-menu {
+    top: 5px;
+    color: var(--text-color-3);
+}
+
+.header .header-menu.other {
+    top: 5px;
+}
+
+.header .header-menu .btn-menu {
+    font-size: 12px;
+    text-shadow: var(--shadow-heavy);
+}
+
+.header .header-menu .header-info {
+    font-size: 10px;
+    color: var(--text-color-3);
+}
+
+.header .header-menu .list-menu {
+    background: var(--nav-dropdown-background-color);
+    border: none;
+}
+
+.header .header-menu .list-menu .icon-menu {
+    color: var(--text-color-alt);
+}
+
+.header .header-menu .list-menu .icon-menu:hover {
+    background: var(--hover-background-color);
+    color: var(--text-color-primary);
+}
+
+.header .header-menu .list-menu .icon-menu svg.icon {
+    fill: var(--text-color-alt);
+    transition: fill 0.3s ease-in-out;
+}
+
+.header .header-menu .list-menu .icon-menu:hover svg.icon {
+    fill: var(--text-color-primary);
+}
+
+
+
+/* HEADER DROPDOWN / USER MENU */
+
+.list-menu-float::before {
+    content: "\f0c9";
+    display: block;
+    width: 40px;
+    height: 50px;
+    color: var(--text-color-primary);
+    font-size: 1.5em;
+    line-height: 50px;
+    font-family: var(--font-set-icon);
+    text-align: center;
+    text-indent: 10px;
+    transition:
+        font-size 0.3s ease-in-out,
+        text-shadow 0.3s ease-in-out;
+    pointer-events: auto;
+}
+
+.list-menu-float:hover::before {
+    font-size: 1.7em;
+    text-shadow:
+        0 0 2px var(--text-color-primary),
+        0 0 1px var(--text-color-primary),
+        1px 1px 7px var(--text-color-primary);
+}
+
+.list-menu-float {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 250;
+    width: 50px;
+    height: 40px;
+    border: none;
+    pointer-events: none;
+}
+
+.list-menu-float:hover {
+    pointer-events: auto;
+}
+
+.list-menu-float .icon-menu {
+    width: 120px;
+    height: 30px;
+    background: var(--nav-dropdown-background-color) !important;
+    line-height: 30px;
+    opacity: 0;
+}
+
+.list-menu-float:hover .icon-menu {
+    opacity: 1;
+    transition:
+        opacity 0.3s ease-in-out,
+        background-image 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+}
+
+.list-menu-float .icon-menu:hover {
+    width: 120px !important;
+    background-image: linear-gradient(var(--hover-background-color), var(--hover-background-color)) !important;
+}
+
+.list-menu-float .icon-menu .text {
+    top: 0;
+    left: 30px;
+    width: auto !important;
+    color: var(--text-color-alt);
+    opacity: 1;
+}
+
+.list-menu-float .icon-menu svg.icon {
+    top: 7px !important;
+    left: 5px !important;
+    width: 15px;
+    height: 15px;
+    fill: var(--text-color-alt);
+    transition: fill 0.3s ease-in-out;
+}
+
+.list-menu-float .icon-menu:hover svg.icon {
+    fill: var(--text-color-primary);
+}
+
+.list-menu-float .icon-menu.profile {
+    background-image: none;
+}
+
+.list-menu-float .icon-menu.profile::before,
+.list-menu-float .icon-menu.profile::after {
+    content: "\f007";
+    position: absolute;
+    color: var(--text-color-alt);
+    transition: color 0.3s ease-in-out;
+}
+
+.list-menu-float .icon-menu.profile::before {
+    top: 7px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    font: 15px/15px "FontAwesome";
+    text-align: center;
+}
+
+.list-menu-float .icon-menu.profile::after {
+    content: "Profile";
+    top: 0;
+    left: 30px;
+    font-size: 1.4em;
+    font-family: var(--font-set-default);
+}
+
+.list-menu-float .icon-menu:hover .text,
+.list-menu-float .icon-menu:hover::before,
+.list-menu-float .icon-menu:hover::after {
+    color: var(--text-color-primary);
+}
+
+.list-menu-float .icon-menu.logout {
+    border-radius: 0 0 4px 4px;
+}
+
+.list-menu-float .icon-menu.setting {
+    display: none;
+}
+
+
+
+/* UPPER BANNER */
+
+.cover-block {
+    position: relative;
+    width: 1200px;
+}
+
+.cover-block .image-container {
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
+#cover-image {
+    width: 1176px;
+    max-width: initial;
+    height: auto;
+    box-shadow: var(--shadow-heavy);
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.cover-block .image-container .btn-list-setting {
+    display: none;
+}
+
+.cover-block .image-container:hover .btn-list-setting {
+    border: none !important;
+    font-family: var(--font-set-default);
+}
+
+
+
+/* AVATAR & QUOTE */
+
+.cover-block::after {
+    content: "";
+    position: absolute;
+    bottom: -104px;
+    left: 57px;
+    z-index: 2;
+    display: block;
+    width: 130px;
+    height: 130px;
+    background: var(--banner-avatar) center / cover no-repeat var(--menu-background-color);
+    border: var(--border) 2px solid;
+    border-radius: 5px;
+    box-shadow: var(--shadow-soft);
+}
+
+.cover-block::before {
+    content: var(--banner-quote);
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+    display: block;
+    width: 800px;
+    color: var(--text-color-primary);
+    font: 35px var(--font-set-quote);
+    text-align: center;
+    text-shadow: var(--shadow-heavy);
+    pointer-events: none;
+}
+
+
+
+/* STATUS MENU */
+
+#status-menu {
+    position: static;
+    width: 1200px;
+    height: 80px;
+    background-color: var(--menu-background-color);
+    box-shadow: var(--shadow-heavy);
+    border: none;
+}
+
+#status-menu .status-menu {
+    display: flex;
+    width: auto;
+    margin: 0 0 0 225px;
+}
+
+#status-menu .status-button {
+    top: 3px;
+    width: 125px;
+    height: 74px;
+    padding: 50px 0 1px;
+    border-radius: 5px;
+    background: center / cover no-repeat var(--list-background-color-1);
+    /* applies both images, one on top of the other, to preload both and prevent flicker */
+    background-image: var(--img), var(--img-sel);
+    margin-right: 8px;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    color: var(--text-color-primary);
+    font: 600 22px/1 var(--font-set-status-menu);
+    filter: grayscale(100%);
+    transition-property: filter, text-shadow;
+    transition-duration: .1s;
+    transition-timing-function: ease-in-out;
+}
+
+#status-menu .status-button.on,
+#status-menu .status-button:hover {
+    padding: 49px 0 0;
+    background-color: var(--hover-background-color);
+    background-image: var(--img-sel), var(--img);
+    border: var(--border) 1px solid;
+    text-shadow: var(--shadow-heavy);
+    filter: none;
+    transition-duration: .3s;
+}
+
+.status-button:nth-of-type(1) {
+    --img: var(--menu-all);
+    --img-sel: var(--menu-all-sel);
+}
+
+.status-button:nth-of-type(2) {
+    --img: var(--menu-current);
+    --img-sel: var(--menu-current-sel);
+}
+
+.status-button:nth-of-type(3) {
+    --img: var(--menu-completed);
+    --img-sel: var(--menu-completed-sel);
+}
+
+.status-button:nth-of-type(4) {
+    --img: var(--menu-onhold);
+    --img-sel: var(--menu-onhold-sel);
+}
+
+.status-button:nth-of-type(5) {
+    --img: var(--menu-dropped);
+    --img-sel: var(--menu-dropped-sel);
+}
+
+.status-button:nth-of-type(6) {
+    --img: var(--menu-planned);
+    --img-sel: var(--menu-planned-sel);
+}
+
+#status-menu .status-button::after {
+    content: none;
+}
+
+
+
+/* SEARCH */
+
+.status-menu-container .search-container {
+    right: 0;
+    z-index: 20;
+    font-size: 0;
+    white-space: nowrap;
+}
+
+.status-menu-container .search-container #search-box {
+    height: 26px;
+    padding: 7px 0;
+    margin-top: 0;
+    font-size: 10px;
+    transition: width 0.3s;
+}
+
+#search-box input {
+    background: var(--input-background);
+    color: var(--input-text);
+    border: none;
+}
+
+.status-menu-container .search-container #search-box.open {
+    width: 128px;
+}
+
+.status-menu-container .search-container #search-button {
+    width: 27px;
+    height: 30px;
+    padding-top: 10px;
+    margin-top: 0;
+    color: var(--text-color-soft);
+    font-size: 18px;
+    text-align: center;
+    transition:
+        background-color 0.1s ease-in-out,
+        color 0.1s ease-in-out;
+}
+
+.status-menu-container .search-container .open+#search-button {
+    pointer-events: none;
+}
+
+.status-menu-container .search-container #search-button:hover {
+    color: var(--text-color-primary) !important;
+    transition-duration: .3s;
+}
+
+
+
+/* LIST HEADER & STATS/FILTERS BUTTON */
+
+.list-unit .list-status-title {
+    display: block;
+    width: 100%;
+    height: var(--banner-height);
+    background: var(--list-background-color-1);
+}
+
+.list-unit .list-status-title .text {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text-color-primary);
+    font: 700 22px var(--font-set-header);
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: var(--shadow-heavy);
+}
+
+.list-unit .list-status-title .stats {
+    top: -55px;
+    right: -12px;
+    z-index: 1;
+    display: flex;
+    width: 128px;
+    height: 40px;
+    background: none;
+}
+
+.list-unit .list-status-title .stats a {
+    height: 40px;
+    margin: 0 !important;
+    flex: 1 1 auto;
+    color: var(--text-color-soft);
+    text-align: center;
+    transition:
+        background-color 0.1s ease-in-out,
+        color 0.1s ease-in-out;
+}
+
+.list-unit .list-status-title .stats a:hover {
+    transition-duration: .3s;
+}
+
+
+
+/* LOWER BANNER */
+
+.list-unit .list-status-title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: calc(var(--banner-height) - 35px);
+    background: var(--banner) center / cover no-repeat;
+    opacity: var(--banner-opacity);
+    -webkit-mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * var(--banner-fade-multiplier)));
+    mask: linear-gradient(to top, rgba(0, 0, 0, 0), #000 calc(100% * var(--banner-fade-multiplier)));
+}
+
+
+
+/* SORT-BY */
+
+.list-table-header {
+    position: absolute;
+    top: -55px;
+    left: -12px;
+    z-index: 200;
+    display: block;
+    pointer-events: none;
+}
+
+.list-table-header:hover {
+    pointer-events: auto;
+}
+
+.list-table .list-table-header::before {
+    content: "\f0dc\00a0SORT";
+    display: block;
+    width: 57px;
+    height: 40px;
+    color: var(--text-color-soft);
+    font: 700 11px/40px var(--font-set-icon);
+    text-align: center;
+    transition:
+        background-color 0.1s ease-in-out,
+        color 0.1s ease-in-out;
+    pointer-events: auto;
+}
+
+.list-table .list-table-header:hover::before {
+    color: var(--text-color-primary);
+    background: var(--list-background-color-2);
+    transition-duration: 0.3s;
+}
+
+.list-table .list-table-header .header-title {
+    display: block;
+    border: none;
+    width: 104px !important;
+    height: auto;
+    padding: 0 !important;
+    background: none var(--menu-background-color);
+    font-size: 0;
+    line-height: 0;
+    text-align: center !important;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.list-table .list-table-header:hover .header-title {
+    opacity: 1;
+}
+
+.list-table .list-table-header .header-title .link.sort {
+    display: block;
+    height: 40px;
+    color: var(--text-color-alt);
+    font-size: 11px;
+    line-height: 40px;
+    transition:
+        background 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+}
+
+.list-table .list-table-header .header-title .link.sort:hover {
+    background: var(--hover-background-color);
+}
+
+.list-table .list-table-header .header-title .sort-icon {
+    color: var(--text-color-primary);
+}
+
+.list-table .list-table-header .header-title.image {
+    display: none;
+}
+
+
+
+/* LIST */
+
+.list-container {
+    width: 1200px;
+    background: transparent !important;
+    border: none;
+    margin: 100px auto 30px;
+    animation: 2s linear ease;
+}
+
+@keyframes intro {
+
+    0%,
+    16% {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.list-block {
+    position: relative;
+    width: 1176px;
+    min-height: 265px;
+    box-shadow: var(--shadow-heavy);
+    margin: 15px auto 0 !important;
+}
+
+.list-unit {
+    width: 100%;
+}
+
+.list-table {
+    background: var(--list-background-color-1) !important;
+    border: none;
+}
+
+.list-unit .loading-space {
+    height: 43px;
+    background: var(--list-background-color-1);
+    margin: 0;
+    color: var(--text-color-primary);
+    font-size: 20px;
+    line-height: 43px;
+}
+
+.list-unit .list-stats {
+    position: absolute;
+    top: calc(5px + (var(--banner-height) * 0.6));
+    z-index: 1;
+    width: 100%;
+    background: var(--menu-background-color);
+    margin: 0 !important;
+    color: var(--text-color-stark);
+}
+
+
+
+/* LIST ITEMS */
+
+/* Base */
+
+.list-item {
+    position: relative;
+    height: 285px;
+    width: 182px;
+    background: var(--list-background-color-2) !important;
+    border: 1px solid transparent;
+    margin: 7px;
+    box-sizing: border-box;
+    float: left;
+    transition: all .1s ease-in-out;
+}
+
+.list-item:hover {
+    box-shadow: var(--shadow-heavy);
+    border: 1px solid rgba(0, 0, 0, .3);
+    transition-duration: .3s;
+}
+
+.list-table .list-table-data {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Various column cells */
+
+.data {
+    position: absolute;
+    z-index: 1;
+    height: 25px;
+    color: var(--text-color-primary);
+    text-align: center;
+    text-shadow: var(--shadow-heavy);
+    opacity: 0;
+    transition: opacity .075s ease-in-out;
+}
+
+.list-table .list-table-data .data {
+    border: none;
+    padding: 0;
+}
+
+.list-item:hover .data,
+.data.title,
+.data.image,
+.data.number,
+.data.type,
+.data.score,
+.data.progress,
+.data.chapter,
+.data.volume {
+    opacity: 1;
+    transition-duration: .15s;
+}
+
+.data.airing-finished,
+.data.airing-started,
+.data.licensor,
+.data.magazine,
+.data.started,
+.data.finished,
+.data.days,
+.data.storage,
+.data.genre,
+.data.demographic {
+    font-size: .9em;
+    font-weight: 700;
+}
+
+/* Links */
+
+.list-table .list-table-data .data a,
+.more-info a {
+    color: var(--text-color-primary) !important;
+}
+
+.list-table .list-table-data .data a:not(.edit-disabled):hover,
+.more-info a:hover {
+    color: var(--text-color-primary) !important;
+    text-decoration: underline;
+}
+
+/* Fields */
+
+.data select,
+.data input {
+    background: var(--input-background) !important;
+    color: var(--input-text) !important;
+    border: none !important;
+}
+
+/* Image */
+
+.data.image {
+    z-index: 0;
+    width: 100%;
+    height: 225px;
+    overflow: hidden;
+}
+
+.data.image a {
+    width: inherit;
+    height: inherit;
+    transition: transform .1s ease-in-out;
+}
+
+.list-item:hover .data.image a {
+    transform: scale(1.1);
+    transition-duration: .2s;
+    pointer-events: none;
+}
+
+.data.image a:before {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 5px #000 inset;
+}
+
+.list-table .list-table-data .data.image .image {
+    height: inherit;
+    width: inherit;
+    border: none;
+}
+
+/* Status */
+
+.list-table .list-table-data .data.status {
+    top: 0;
+    left: 25px;
+    z-index: 2;
+    width: 0;
+}
+
+.data.status:before {
+    display: block;
+    width: 25px;
+    height: 25px;
+    font: 1.5em/25px "FontAwesome";
+    pointer-events: none;
+}
+
+.list-item:not(:hover) .data.status:before {
+    content: none;
+}
+
+.data.status.reading:before,
+.data.status.watching:before {
+    content: "\f008";
+}
+
+.data.status.completed:before {
+    content: "\f05d";
+}
+
+.data.status.dropped:before {
+    content: "\f00d";
+}
+
+.data.status.onhold:before {
+    content: "\f017";
+}
+
+.data.status.plantoread:before,
+.data.status.plantowatch:before {
+    content: "\f073";
+}
+
+/* Number */
+
+.list-item .data.number {
+    left: 7px;
+    z-index: 2;
+    line-height: 25px;
+    text-align: left;
+}
+
+/* Type */
+
+.data.type {
+    top: 5px;
+    right: 5px;
+    width: 50px;
+    font-weight: 700;
+    text-align: right !important;
+}
+
+/* Title */
+
+.list-item .data.title {
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.list-table .list-table-data .data.title .link {
+    position: absolute;
+    top: 230px;
+    width: calc(100% - 16px);
+    height: 1.05em;
+    overflow: hidden;
+    font: 100 17px/1.05em var(--font-set-title);
+    text-align: center;
+    transition: letter-spacing .1s ease;
+}
+
+.list-table .list-item:hover .data.title .link {
+    letter-spacing: .5px;
+}
+
+.list-table .list-table-data .data.title .link:hover {
+    height: auto;
+    overflow: visible;
+}
+
+/* Watch Icon */
+
+#list-container .mal-icon {
+    position: absolute;
+    top: 235px;
+    left: 170px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    opacity: 0;
+}
+
+#list-container .list-item:hover .mal-icon {
+    opacity: 1;
+}
+
+#list-container .mal-icon i {
+    color: var(--text-color-primary);
+}
+
+/* Notes */
+
+.notes {
+    display: none;
+}
+
+/* Dark Overlays */
+
+.data.image::after,
+.data.title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.data.image::after {
+    height: 25px;
+    background: linear-gradient(var(--list-hover-background-color), transparent);
+}
+
+.data.title::before {
+    height: 283px;
+    opacity: 0;
+    transition: opacity .1s ease-in-out;
+}
+
+.list-item:hover .data.title::before {
+    background-color: var(--list-hover-background-color) !important;
+    opacity: 1;
+}
+
+/* Content Status */
+
+.list-table .list-table-data .data.title .content-status,
+.list-table .list-table-data .data.title .rereading,
+.list-table .list-table-data .data.title .rewatching {
+    position: absolute;
+    right: 4px;
+    top: -16px;
+    width: 100%;
+    font-weight: 700;
+    color: var(--text-color-primary);
+    font-size: 1em;
+    text-align: right;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.list-table .list-item:hover .data.title .content-status,
+.list-table .list-item:hover .data.title .rereading,
+.list-table .list-item:hover .data.title .rewatching {
+    opacity: 1;
+}
+
+/* Add-Edit-More */
+
+.add-edit-more {
+    position: absolute;
+    top: 0;
+    left: 75px;
+    z-index: 1;
+    font-size: 0 !important;
+    opacity: 0;
+}
+
+.list-item:hover .add-edit-more {
+    opacity: 1;
+}
+
+.add-edit-more a {
+    float: left;
+    height: 25px;
+    width: 25px;
+    background: center / 15px auto no-repeat;
+}
+
+.add-edit-more .add a {
+    background-image: url(http://i.imgur.com/AoTgUAL.png);
+}
+
+.add-edit-more .edit a {
+    background-image: url(http://i.imgur.com/OT1yCLP.png);
+}
+
+.add-edit-more .more a {
+    background-image: url(http://i.imgur.com/cUAaila.png);
+}
+
+/* Score */
+
+.list-item .data.score {
+    bottom: -5px;
+    right: 5px;
+    width: 15px;
+    text-align: left;
+}
+
+.data.score:before {
+    content: "Score:";
+    position: absolute;
+    right: 18px;
+    font-size: 10px;
+}
+
+.data.score .link {
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-top: 5px;
+    font-size: 1.2em !important;
+}
+
+/* Priority */
+
+.data.priority {
+    top: -16px;
+    left: 4px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.data.priority:after {
+    content: "Priority";
+}
+
+/* Rated */
+
+.list-table .list-table-data .data.rated {
+    left: 120px;
+    right: 0;
+    top: 30px;
+    font-weight: 700;
+}
+
+.list-table .list-table-data .data.rated:before {
+    content: "Rated";
+    display: block;
+}
+
+/* Episodes, Chapters, Volumes */
+
+.data.progress,
+.data.volume {
+    bottom: -5px;
+    left: 5px;
+    line-height: 16.5px;
+}
+
+.data.volume {
+    bottom: -5px;
+    left: 2px;
+    font-size: 9px;
+    line-height: 16.5px;
+}
+
+.data.chapter {
+    bottom: -5px;
+    left: 56px;
+    font-size: 9px;
+    line-height: 16.5px;
+}
+
+/* Tags */
+
+.data.tags {
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    pointer-events: none;
+}
+
+#list-container .data.tags a {
+    color: var(--text-color-inverse) !important;
+    font-size: 1em;
+}
+
+.data.tags:before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background: url(http://i.imgur.com/WC8S1cb.png) center / 15px 14px no-repeat;
+    pointer-events: auto;
+}
+
+.data.tags div,
+.data.tags .edit {
+    width: 100%;
+    height: 180px;
+    background: var(--inverse-background-color);
+    overflow: hidden;
+    margin-top: 25px;
+    color: var(--text-color-inverse);
+    text-shadow: none;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+}
+
+#list-container .tags .edit {
+    height: 20px;
+    margin: 0;
+    color: var(--text-color-inverse) !important;
+}
+
+.data.tags:hover div,
+.data.tags:hover .edit {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.list-table .list-table-data .tags textarea {
+    width: 100%;
+    height: 200px;
+    background: var(--inverse-background-color);
+    border: none;
+    margin-top: 25px;
+    color: var(--text-color-inverse);
+    font: 11px/1.5 var(--font-set-default);
+    text-align: center;
+}
+
+/* Started, Finished, Days */
+
+.data.started,
+.data.finished,
+.data.days {
+    top: 280px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.data.started {
+    left: 0;
+}
+
+.data.finished {
+    left: 56px;
+}
+
+.data.days {
+    left: 124px;
+    font-size: 1em;
+}
+
+.data.finished::before {
+    content: "to";
+}
+
+.data.days::before {
+    content: ",";
+}
+
+.data.days::after {
+    content: " days";
+}
+
+/* Studio */
+
+.list-item .data.studio {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
+    display: table;
+    height: 30px !important;
+    margin: 0;
+    top: 195px;
+    width: 180px;
+    z-index: 1 !important;
+}
+
+.list-item .data.studio * {
+    font-weight: 700 !important;
+}
+
+.list-item .data.studio span {
+    display: table-cell;
+    vertical-align: middle;
+    display: inline-block;
+    display: inline !important;
+    vertical-align: middle !important;
+}
+
+/* Airing Dates */
+
+.list-table .list-table-data .data.airing-finished {
+    left: 4px;
+    position: absolute !important;
+    top: 70px !important;
+}
+
+.list-table .list-table-data .data.airing-finished:before {
+    content: "Ended:";
+}
+
+.list-table .list-table-data .data.airing-started {
+    left: 4px;
+    position: absolute !important;
+    top: 50px !important;
+}
+
+.list-table .list-table-data .data.airing-started:before {
+    content: "Debuted:";
+}
+
+/* Other  */
+
+.list-table .list-table-data .data.genre {
+    top: 95px;
+    width: 100%;
+}
+
+.list-table .list-table-data .data.demographic,
+.list-table .list-table-data .data.genre~.genre {
+    top: 145px;
+    width: 100%;
+}
+
+.list-table .list-table-data .data.season {
+    top: 30px;
+    left: 4px;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.list-table .list-table-data .data.storage,
+.list-table .list-table-data .data.retail {
+    left: 120px;
+    top: 70px;
+}
+
+.list-table .list-table-data .data.licensor,
+.list-table .list-table-data .data.magazine {
+    left: -10px;
+    top: 165px;
+    width: 200px;
+}
+
+/* More Info */
+
+.more-info {
+    position: absolute;
+    top: 25px;
+    z-index: 3;
+    width: 100%;
+    height: calc(100% - 25px);
+    background: var(--list-hover-background-color);
+    text-shadow: var(--shadow-heavy);
+    overflow-y: auto;
+}
+
+
+/* FOOTER & COPYRIGHT */
+
+#footer-block {
+    width: auto !important;
+    /* 2022 fix for MS Edge */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--darkening-color));
+    text-shadow: 0px 3px 3px #000;
+    letter-spacing: 1px;
+}
+
+#copyright {
+    font-size: 10px;
+    white-space: pre;
+}
+
+#copyright::after {
+    content: "Shelter Style - Layout originally designed by Takana no Hana, Shishio-kun, Valerio Lyndon - Modified by NafizHC."
+}
+
+
+/* STREAMING MENU */
+
+.mal-modal .mal-modal-dialog .mal-modal-content {
+    background: var(--menu-background-color);
+    color: var(--text-color-alt);
+}
+
+.mal-modal .broadcast a {
+    color: inherit !important;
+}
+
+.mal-modal .broadcast a:hover {
+    color: var(--text-color-primary) !important;
+    background: var(--hover-background-color) !important;
+}
+
+
+/* FILTER MENU */
+
+#advanced-options {
+    position: fixed;
+    background: var(--filter-background) center / cover no-repeat var(--menu-background-color);
+    border: none;
+    color: var(--text-color-filter-menu);
+    font-family: var(--font-set-default);
+}
+
+#advanced-options .advanced-options-header {
+    border-color: var(--border-soft);
+}
+
+#advanced-options .sort-widget .widget-header,
+#advanced-options .filter-widget .widget-header {
+    font-family: var(--font-set-default);
+}
+
+#advanced-options .advanced-options-button {
+    border-color: var(--border-soft);
+}
+
+#advanced-options .advanced-options-button a {
+    background: var(--filter-button-background-color);
+    color: var(--text-color-primary);
+}
+
+#advanced-options .advanced-options-button a:hover {
+    background: var(--hover-background-color);
+}
+
+
+/* OTHER FIXES */
+
+div[style="padding-top: 8px"] {
+    display: none;
+}
+
+
+/* RENDERS */
+
+footer::before,
+footer::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    width: calc(100% - 1000px);
+    height: 80%;
+    min-height: 500px;
+    min-width: 500px;
+    pointer-events: none;
+}
+
+footer::before {
+    right: calc(50% + 350px);
+    background: var(--left-render) var(--left-render-pos) / var(--left-render-size) no-repeat;
+}
+
+footer::after {
+    left: calc(50% + 350px);
+    background: var(--right-render) var(--right-render-pos) / var(--right-render-size) no-repeat;
+}
