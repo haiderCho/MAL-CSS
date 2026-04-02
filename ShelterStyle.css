@@ -145,7 +145,7 @@
 
 /* BASIC PAGE SETTINGS */
 
-*,
+body,
 #list-container .mal-icon {
     cursor: var(--cursor) var(--cursor-offset), default;
     scrollbar-color: var(--scroll-bar) var(--scroll-background);
@@ -179,7 +179,7 @@ a:hover {
 }
 
 body.ownlist {
-    background: fixed var(--background) center top / cover no-repeat;
+    background: var(--background) center top / cover no-repeat fixed;
 }
 
 
@@ -738,7 +738,7 @@ body.ownlist {
     background: transparent !important;
     border: none;
     margin: 100px auto 30px;
-    animation: 2s linear ease;
+    animation: intro 2s ease forwards;
 }
 
 @keyframes intro {
@@ -806,7 +806,7 @@ body.ownlist {
     margin: 7px;
     box-sizing: border-box;
     float: left;
-    transition: all .1s ease-in-out;
+    transition: box-shadow .1s ease-in-out, border .1s ease-in-out;
 }
 
 .list-item:hover {
@@ -901,6 +901,7 @@ body.ownlist {
     width: inherit;
     height: inherit;
     transition: transform .1s ease-in-out;
+    will-change: transform;
 }
 
 .list-item:hover .data.image a {
