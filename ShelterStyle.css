@@ -12,7 +12,7 @@
       * valid values: url(IMAGEURL) / none */
 
     --banner-avatar: url(https://imgur.com/ewhIfvt.gif);
-    --background: url(https://i.imgur.com/ShBeoCq.jpg);
+   /* --background: url(https://i.imgur.com/ShBeoCq.jpg);
     --banner: none;
     --left-render: none;
     --left-render-pos: center bottom;
@@ -20,7 +20,7 @@
     --right-render: url(https://i.imgur.com/MlwDMNL.png);
     --right-render-pos: center bottom;
     --right-render-size: 70%;
-    --filter-background: url(https://i.imgur.com/h0VRsRc.png);
+    --filter-background: url(https://i.imgur.com/h0VRsRc.png);*/
 
     --menu-all: url(https://i.imgur.com/tvxxhu3.png);
     --menu-all-sel: url(https://i.imgur.com/rmiU9tl.gif);
@@ -39,8 +39,8 @@
     --cursor-link: var(--cursor);
 
     /* Change the amount the cursor is offset from its default placement.
-      * Useful for when cursor images have a lot of white space on the edges 
-      * valid values: two numbers relating to the <x> and <y> position e.x: 3 1 */
+      * Useful for when cursor images have a lot of white space on the edges
+      * valid values: two numbers relating to the  and  position e.x: 3 1 */
     --cursor-offset: 2 2;
     --cursor-link-offset: var(--cursor-offset);
 
@@ -63,10 +63,7 @@
       * higher = more fading */
     --banner-fade-multiplier: 0.41;
 
-    /* Theme colours
-      * valid values: any valid CSS colour
-      * for help choosing a colour and getting its CSS value,
-      * see https://www.w3schools.com/colors/colors_hsl.asp */
+    /* Theme colours*/
 
     --menu-background-color: rgba(0, 0, 0, .4);
     --list-background-color-1: rgba(0, 0, 0, .3);
@@ -98,7 +95,7 @@
     /* Changes various text and box shadows
       * --shadow-status is used for the Rewatching/Airing status
       * shadows are styled as such:
-      * <x distance> <y distance> <blur> <spread (optional)> <colour> */
+      *      */
     --shadow-heavy:
         0 0 2px #000,
         0 0 1px #000,
@@ -128,24 +125,9 @@
     --font-set-status-menu: "Tangerine", cursive;
 }
 
-
-
-
-
-
-/*
-  * INTERNAL CODE
-  * This is where the code gets rather undocumented.
-  * If you don't already understand CSS, it may be hard to understand.
-  * I encourage modification of it, you won't break MAL by messing up the CSS.
-  * Just remember to keep backups in-case something goes funky.
-  */
-
-
-
 /* BASIC PAGE SETTINGS */
 
-body,
+*,
 #list-container .mal-icon {
     cursor: var(--cursor) var(--cursor-offset), default;
     scrollbar-color: var(--scroll-bar) var(--scroll-background);
@@ -179,7 +161,7 @@ a:hover {
 }
 
 body.ownlist {
-    background: var(--background) center top / cover no-repeat fixed;
+    background: fixed var(--background) center top / cover no-repeat;
 }
 
 
@@ -738,7 +720,7 @@ body.ownlist {
     background: transparent !important;
     border: none;
     margin: 100px auto 30px;
-    animation: intro 2s ease forwards;
+    animation: 2s linear ease;
 }
 
 @keyframes intro {
@@ -806,7 +788,7 @@ body.ownlist {
     margin: 7px;
     box-sizing: border-box;
     float: left;
-    transition: box-shadow .1s ease-in-out, border .1s ease-in-out;
+    transition: all .1s ease-in-out;
 }
 
 .list-item:hover {
@@ -901,7 +883,6 @@ body.ownlist {
     width: inherit;
     height: inherit;
     transition: transform .1s ease-in-out;
-    will-change: transform;
 }
 
 .list-item:hover .data.image a {
@@ -1410,7 +1391,7 @@ body.ownlist {
 }
 
 #copyright::after {
-    content: "Shelter Style - Layout originally designed by Takana no Hana, Shishio-kun, Valerio Lyndon - Modified by NafizHC."
+    content: "Layout originally designed by Takana no Hana, Shishio-kun, and Valerio Lyndon. Modified by NafizHC.";
 }
 
 
